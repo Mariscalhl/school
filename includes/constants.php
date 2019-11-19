@@ -5,11 +5,11 @@ Hector Mariscal
 */
 
 //Database Constants
-define("DB_SERVER_NAME","127.0.0.1");
-define("DB_NAME","schooldb");
+define("DB_SERVER_NAME","lolyz0ok3stvj6f0.cbetxkdyhwsb.us-east-1.rds.amazonaws.com");
+define("DB_NAME","qy20a3z8pq0w2v0i");
 //define("DB_PORT","3306");
-define("DB_PASSWORD","");
-define("DB_USERNAME","root");
+define("DB_PASSWORD","l71c0nvcgvygtoxc");
+define("DB_USERNAME","d5o2wtuvfflwipe4");
 
 //State Maintenance Constants
 define("HASH_ALGO","md5");
