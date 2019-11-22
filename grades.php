@@ -36,18 +36,20 @@ if (isset($_GET['editGrade'])){
   // $grade = $_GET['grade'];
 
 
-  $sqlGrades = "SELECT * FROM grades WHERE grade = '$grade' ";
+  //$sqlGrades = "SELECT * FROM grades WHERE grade = '$grade' ";
+  $sqlGrades = "SELECT students.student_id, student_first_name, student_last_name, grades.grade, courses.course_id, course_name 
+                FROM students INNER JOIN grades ON students.student_id = grades.student_id INNER JOIN courses ON grades.course_id = courses.course_id; ";
   //$sqlGrades = "SELECT students.student_id,student_first_name, student_last_name, grade, course_name, courses.course_id FROM students join grades on students.student_id = grades.student_id join courses on grades.course_id = courses.course_id ;";
   $result = mysqli_query($conn,$sqlGrades) or die($conn->error) or die($conn->error);
-
-  if (count($result) == 1 ){
+  var_dump($result);
+  
 
     $row = $result->fetch_array();
-    $id = $row['student_id'];
-    $course = $row['course_id'];
+    $id = $row['student_first_name'] . " " . $row['student_last_name'];
+    $course = $row['course_name'];
     $grade = $row['grade'];
 
-  }
+  
 }
 
 if (isset($_POST['courseOption']))
@@ -68,7 +70,12 @@ if (isset($_POST['update'])){
 
   // $sqlUpdateGrades = "UPDATE GRADES SET grade = '$grade' FROM students INNER JOIN grades ON students.student_id = grades.student_id INNER JOIN courses ON grades.course_id = courses.course_id WHERE grades.student_id = '$id' AND grades.course_id = '$course';";
 
-  $sqlUpdateGrades = "UPDATE GRADES SET grade = '$grade' WHERE grades.student_id = '$id';";
+  //$sqlUpdateGrades = "UPDATE GRADES SET grade = '$grade' WHERE grades.student_id = '$id';";
+  $sqlUpdateGrades = "UPDATE grades SET grade = '$grade' FROM students 
+                      INNER JOIN grades ON students.student_id = grades.student_id 
+                      INNER JOIN courses ON grades.course_id = courses.course_id 
+                      WHERE grades.student_id = '$id' AND courses.course_id = '$course' AND students.student_id = '$id'; ";
+  // $sqlUpdateGrades = "SELECT students.student_id,student_first_name, student_last_name, grade, course_name, courses.course_id FROM students join grades on students.student_id = grades.student_id join courses on grades.course_id = courses.course_id;";
 
   $resultGrades = mysqli_query($conn,$sqlUpdateGrades) or die($conn->error);   
 
@@ -76,10 +83,7 @@ if (isset($_POST['update'])){
 
 }
 
-
-
 ?>
-
 
 <div class="container">
   <div class="justify-content-center">
@@ -88,15 +92,16 @@ if (isset($_POST['update'])){
       <?php    
       
 
-      $sqlGrades = "SELECT students.student_id,students.student_first_name, students.student_last_name, grades.grade, courses.course_name, grades.course_id FROM students join grades on students.student_id = grades.student_id join courses on grades.course_id = courses.course_id WHERE teacher_id = '$user_id' AND courses.course_name = '$coursesTaughtByTeacher' ORDER BY students.student_last_name;";
+      $sqlGrades = "SELECT students.student_id,student_first_name, student_last_name, grades.grade, courses.course_id,course_name 
+                    FROM students INNER JOIN grades ON students.student_id = grades.student_id 
+                    INNER JOIN courses ON grades.course_id = courses.course_id 
+                    WHERE teacher_id = '$user_id' AND courses.course_name = '$coursesTaughtByTeacher' 
+                    ORDER BY students.student_last_name;";
 
-      $resultGrades = mysqli_query($conn,$sqlGrades) or die($conn->error);   
-
-      
+      $resultGrades = mysqli_query($conn,$sqlGrades) or die($conn->error);       
 
       ?>
-      <br/>
-      
+      <br/>      
 
       <br/><br/>
       <div class="row justify-content-center">
