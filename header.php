@@ -37,9 +37,9 @@
       <?php if($_SESSION['user']['user_type'] == 'S'){ ?>
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Student Options <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="./student_dash">Dashboard</a></li>
+          <li><a href="./student_dash.php">Dashboard</a></li>
           <li><a href="./student_grade.php">Grades</a></li>
-          <li><a href="./settings">Settings</a></li>
+          <li><a href="./settings.php">Settings</a></li>
         </ul>
       </li>
     <?php }else if(($_SESSION['user']['user_type'] == 'T')) {?>
