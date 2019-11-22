@@ -15,7 +15,13 @@
 
   <center>  
   	<img src="./images/school_logo.png" width="50%" height="300" alt="school image"/>
-  	<p>School Information will go here.Probably</p>
+  	<p> 
+  		Mailing address: 2000 Somcoi St S.
+		Website Address: https://modeprojectschool.herokuapp.com/
+		Email: school@email.com
+		Phone: 666-420-6969
+		Fax: 7
+	</p>
 
 	<iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY">
 	</iframe>

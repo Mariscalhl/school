@@ -1,0 +1,43 @@
+#programs {
+  font-family: 'din', Arial, sans-serif;
+  border-collapse: collapse;
+  width: 90%;
+  margin-left:auto; 
+  margin-right:auto;  
+}
+
+#programs td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#programs tr:nth-child(even){background-color: #f2f2f2;}
+
+#programs tr:hover {background-color: #ddd;}
+
+#programs th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #333;
+  color: white;
+}
+
+img {
+    
+    width: 55%;
+    float: right;
+    top: 5px;
+}
+
+p {
+    border: 1px solid gray;
+    padding: 8px;
+    text-align: left;
+}
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+}
+

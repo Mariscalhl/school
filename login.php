@@ -50,23 +50,17 @@
       //print_r($_SESSION['user']);
 
       if($_SESSION['user']['user_type'] == 'S'){
-         $url = 'test_dash.php';
+         // $url = 'test_dash.php';
+      	$url = 'student_dash.php';
          //$url = 'http://www.google.com/';
          header('Location: ' . $url, true , 301);
       }
       else if($_SESSION['user']['user_type'] == 'T'){
+         $url = 'teacher_dash.php';
+         //$url = 'http://www.google.com/';
+         header('Location: ' . $url, true , 301);
 
       }
-
-
-         
-
-         // Redirect to the new URL.
-         //$url = 'http://www.google.com/';
-         //$url = 'index.php';
-         //$url = 'welcome.php';
-         //header('Location: ' . $url, true , 301);
-         //exit;
 
       }else {
          $error = "Your Login Name or Password is invalid";

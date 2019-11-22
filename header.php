@@ -34,13 +34,25 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="./index.php">Home</a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+      <?php if($_SESSION['user']['user_type'] == 'S'){ ?>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Student Options <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Page 1-1</a></li>
-          <li><a href="#">Page 1-2</a></li>
-          <li><a href="#">Page 1-3</a></li>
+          <li><a href="./student_dash">Dashboard</a></li>
+          <li><a href="./student_grade.php">Grades</a></li>
+          <li><a href="./settings">Settings</a></li>
         </ul>
       </li>
+    <?php }else if(($_SESSION['user']['user_type'] == 'T')) {?>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Teacher Options <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="./teacher_dash">Dashboard</a></li>
+          <li><a href="./classlist.php">Classlist</a></li>
+          <li><a href="./grades.php">Class Grades</a></li>
+        </ul>
+      </li>
+  <?php }?>
+      <li><a href="programs_page.php">Programs</a></li>
+      <li><a href="events.php">Events</a></li>
       <li><a href="about.php">About</a></li>
     </ul>
 
