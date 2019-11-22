@@ -53,7 +53,7 @@ if (isset($_POST['courseOption']))
 
         <button class="btn btn-dark"><a href="./teacher_dash.php"> GO BACK TO DASHBOARD </a></button>
 
-        <form action= "./classList.php" method="POST">
+        <form action= "./classlist.php" method="POST">
           <br/><br/>
           <p> Choose a course from the dropdown to view the list of student you teach for the selected course. <br> Then click 'Submit' </p>          
           <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="courseOption" value = courseOption name="courseOption" >

@@ -45,7 +45,7 @@
     <?php }else if(($_SESSION['user']['user_type'] == 'T')) {?>
           <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Teacher Options <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="./teacher_dash">Dashboard</a></li>
+          <li><a href="./teacher_dash.php">Dashboard</a></li>
           <li><a href="./classlist.php">Classlist</a></li>
           <li><a href="./grades.php">Class Grades</a></li>
         </ul>
